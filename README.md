@@ -1,4 +1,4 @@
-# Team Name
+# Team ECMM
 
 Project description (~1 paragraph)
 
