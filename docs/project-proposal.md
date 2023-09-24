@@ -20,7 +20,7 @@ We plan on using Pycharm to code in pygame and pygame-gui, Youtube and the inter
 
 (What is your estimated "plan of attack" for developing this project)
 
-Using the tutorial found online and using each part as a guide for where we should be each week. 
+Using the [tutorial](https://rogueliketutorials.com/tutorials/tcod/v2/) found on online and using each part as a guide for where we should be each week. 
 
 # Estimated Timeline
 
