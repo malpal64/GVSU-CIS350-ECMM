@@ -8,7 +8,7 @@ Team members:
 
 # Anticipated Technologies
 
-(What technologies are needed to build this project)
+We plan on using Pycharm to code in pygame and pygame-gui, Youtube and the internet for tutorials/references, and github to manage our project documents.
 
 # Method/Approach
 
