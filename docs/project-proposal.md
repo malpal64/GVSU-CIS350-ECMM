@@ -26,7 +26,32 @@ Using the [tutorial](https://rogueliketutorials.com/tutorials/tcod/v2/) found on
 
 (Figure out what your major milestones for this project will be, including how long you anticipate it *may* take to reach that point)
 
+**Week 2-3: Pre-production**
+- Finalize game design, including mechanics, levels, and gameplay.
+- Begin concept art and character design.
+- Set up version control and project management tools.
 
+**Week 4-5: Core Gameplay Mechanics**
+- Develop a prototype of core gameplay mechanics.
+- Code character movement, combat, and inventory systems.
+- Begin procedural generation algorithms for levels.
+
+**Week 6-7: Art and Asset Creation**
+- Continue with concept art and character design.
+- Develop basic level layouts.
+- Begin integrating sound and music.
+
+**Week 8-9: Production**
+- Implement procedural level generation.
+- Work on enemy AI and behaviors.
+- Develop the user interface (UI) and HUD.
+- Conduct initial internal playtesting.
+
+**Week 10: Alpha Testing and Documentation**
+- Launch testing.
+- Address major bugs and gameplay issues.
+- Develop a simplified game design document.
+- Create basic documentation and tutorials for players.
 
 # Anticipated Problems
 
