@@ -56,3 +56,8 @@ Using the [tutorial](https://rogueliketutorials.com/tutorials/tcod/v2/) found on
 # Anticipated Problems
 
 (Describe any problems you foresee that you will need to overcome)
+
++ Learning how to write the code
++ Implementing features
++ Graphics
++ Scope control (being realistic about what we can accomplish in the time limit)
