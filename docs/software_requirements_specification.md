@@ -42,3 +42,18 @@ The purpose of this Software Requirements Specification (SRS) document is to pro
     1. The system shall have an easy to use interface.
         1. The system shall be visually appealing. 
         1. The system shall provide clear information on character status, inventory, game world, and time.
+    2. The background shall move with the player as they explore the level.
+  
+2.  Performance
+    1. The game shall run smoothly on a variety of devices, including smartphones, tablets, and computers.
+        1. The game shall maintain a consistent frame rate to ensure smooth and enjoyable player experience.
+    2. The game shall allow the player to move in real time with minimal lag.
+        1. The game shall have minimal wait times between levels to keep players engaged.
+
+3. Replayability
+    1. The game shall be designed to encourage replayability by offering a wide range of shopper avatars, power-ups, and procedurally generated content. 
+
+4. Security and Data Integrity
+    1. The game shall regularly back up progress and data to prevent loss due to technical issues or crashes. 
+    2. The game shall implement safety measures to protect player data.
+    3. The game shall implement safety measures to ensure data cannot be manipulated by users to prevent cheating.
