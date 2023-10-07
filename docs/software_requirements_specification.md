@@ -5,7 +5,7 @@ The purpose of this Software Requirements Specification (SRS) document is to pro
 # Functional Requirements
 
 1. Movement
-    1. The player shall move up one unit when the user presses the up arrow.
-    2. The player shall move down one unit when the user presses the down arrow.
-    3. The player shall move left one unit when the user presses the left arrow.
-    4. The player shall move right one unit when the user presses the right arrow.
+    1.1 The player shall move up one unit when the user presses the up arrow.
+    1.2 The player shall move down one unit when the user presses the down arrow.
+    1.3 The player shall move left one unit when the user presses the left arrow.
+    1.4 The player shall move right one unit when the user presses the right arrow.
