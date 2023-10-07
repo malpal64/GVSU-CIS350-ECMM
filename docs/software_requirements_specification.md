@@ -5,7 +5,13 @@ The purpose of this Software Requirements Specification (SRS) document is to pro
 # Functional Requirements
 
 1. Movement
-    i. The player shall move up one unit when the user presses the up arrow.
-    ii. The player shall move down one unit when the user presses the down arrow.
-    iii. The player shall move left one unit when the user presses the left arrow.
-    iv. The player shall move right one unit when the user presses the right arrow.
+    1. The player shall move up one unit when the user presses the up arrow.
+    2. The player shall move down one unit when the user presses the down arrow.
+    3. The player shall move left one unit when the user presses the left arrow.
+    4. The player shall move right one unit when the user presses the right arrow.
+  
+2. Procedurally Generated Levels
+    1. The game shall produce unique levels.
+    2. The game shall increase difficulty when continuing to the next level.
+    3. The system shall generate a new level once the current level’s objectives have been reached.
+
