@@ -35,3 +35,6 @@ class Item(pygame.sprite.Sprite):
         # check if the animation has finished
         if self.frame_index >= len(self.animation_list):
             self.frame_index = 0
+
+    def draw(self, surface):
+        surface.blit(self.image, self.rect)
