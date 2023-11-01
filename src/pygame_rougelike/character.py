@@ -1,4 +1,3 @@
-import math
 
 import pygame
 import math
@@ -22,7 +21,7 @@ class Character():
         self.rect = pygame.Rect(0, 0, constants.TILE_SIZE * size, constants.TILE_SIZE * size)
         self.rect.center = (x, y)
 
-    def move(self, dx, dy):
+    def move(self, dx, dy, obstacle_tiles):
         screen_scroll = [0, 0]
         self.running = False
 
@@ -38,10 +37,29 @@ class Character():
             dx = dx * (math.sqrt(2)/2)
             dy = dy * (math.sqrt(2)/2)
 
+        # check for collision with map in x direction
         self.rect.x += dx
-        self.rect.y += dy
+        for obstacle in obstacle_tiles:
+            # check for collision
+            if obstacle[1].colliderect(self.rect):
+                # check which side the collision is from
+                if dx > 0:
+                    self.rect.right = obstacle[1].left
+                if dx < 0:
+                    self.rect.left = obstacle[1].right
 
-        # logically aplicable to player
+        # check for collision with map in x direction
+        self.rect.y += dy
+        for obstacle in obstacle_tiles:
+            # check for collision
+            if obstacle[1].colliderect(self.rect):
+                # check which side the collision is from
+                if dy > 0:
+                    self.rect.bottom = obstacle[1].top
+                if dy < 0:
+                    self.rect.top = obstacle[1].bottom
+
+        # logically applicable to player
         if self.char_type == 0:
             # update scroll based on player position
             # move camera left and right
