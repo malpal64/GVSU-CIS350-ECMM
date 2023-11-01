@@ -56,6 +56,8 @@ item_images.append(red_potion)
 # load weapon images
 bow_image = scale_img(pygame.image.load("assets/images/weapons/bow.png").convert_alpha(), constants.WEAPON_SCALE)
 arrow_image = scale_img(pygame.image.load("assets/images/weapons/arrow.png").convert_alpha(), constants.WEAPON_SCALE)
+fireball_image = scale_img(pygame.image.load("assets/images/weapons/fireball.png").convert_alpha(), constants.FIREBALL_SCALE)
+
 
 # load tilemap images
 tile_list = []
@@ -103,6 +105,8 @@ def draw_info():
         else:
             screen.blit(heart_empty, (10 + i * 50, 0))
 
+    # show level
+    draw_text("LEVEL: " + str(level), font, constants.WHITE, constants.SCREEN_WIDTH / 2, 15)
     # show score
     draw_text(f"X{player.score}", font, constants.WHITE, constants.SCREEN_WIDTH - 100, 15)
 
@@ -156,6 +160,7 @@ enemy_list = world.character_list
 damage_text_group = pygame.sprite.Group()
 arrow_group = pygame.sprite.Group()
 item_group = pygame.sprite.Group()
+fireball_group = pygame.sprite.Group()
 
 score_coin = Item(constants.SCREEN_WIDTH -115, 23, 0, coin_images, True)
 item_group.add(score_coin)
@@ -193,8 +198,11 @@ while run:
     # update all objects
     world.update(screen_scroll)
     for enemy in enemy_list:
-        enemy.ai(player, world.obstacle_tiles, screen_scroll)
-        enemy.update()
+        fireball = enemy.ai(player, world.obstacle_tiles, screen_scroll, fireball_image)
+        if fireball:
+            fireball_group.add(fireball)
+        if enemy.alive:
+            enemy.update()
     player.update()
     arrow = bow.update(player)
     if arrow:
@@ -205,6 +213,7 @@ while run:
             damage_text = DamageText(damage_pos.centerx, damage_pos.y, str(damage), constants.RED)
             damage_text_group.add(damage_text)
     damage_text_group.update()
+    fireball_group.update(screen_scroll, player)
     item_group.update(screen_scroll, player)
 
 
@@ -216,6 +225,8 @@ while run:
     bow.draw(screen)
     for arrow in arrow_group:
         arrow.draw(screen)
+    for fireball in fireball_group:
+        fireball.draw(screen)
     damage_text_group.draw(screen)
     item_group.draw(screen)
     draw_info()
