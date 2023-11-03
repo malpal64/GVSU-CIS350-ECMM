@@ -9,4 +9,4 @@ Now, make progress on their implementation.  Provide at least three screenshots 
 Task 1 screenshots:
 
 Task 2 screenshots:
-[![Task 2 video]](https://drive.google.com/file/d/1DaTM2MeJmLbnEQXt1LSG_58orSGgtBTW/view?usp=sharing)
+[[Task 2 video]](https://drive.google.com/file/d/1DaTM2MeJmLbnEQXt1LSG_58orSGgtBTW/view?usp=sharing)
