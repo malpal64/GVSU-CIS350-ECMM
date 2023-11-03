@@ -1,6 +1,6 @@
 Select and describe two tasks for your projects.
 
-Task 1: Make 4 playable characters for the game. We
+Task 1: Make 4 playable characters for the game.
 
 Task 2: Finish tutorial. 
 
