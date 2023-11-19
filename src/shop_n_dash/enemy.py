@@ -9,4 +9,5 @@ class Enemy():
         pass
 
     def enemy_ai(self):
+        pass
 
