@@ -6,12 +6,12 @@ from tile import Tile
 from enemy import Enemy
 
 class LevelGenerator():
-    def __init__(self, num_items, num_enemies):
-        self.num_items = num_items
-        self.num_enemies = num_enemies
+    def __init__(self):
+        self.num_items = random.randint(2,10)
+        self.num_enemies = random.randint(2,10)
 
-    def generate_level(self, width, height):
-        game_map = GameMap(width, height)
+    def generate_level(self):
+        game_map = GameMap()
         self.place_obstacles(game_map)
         self.place_items_and_enemies(game_map)
         return game_map
