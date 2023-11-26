@@ -3,13 +3,14 @@ from levelGenerator import LevelGenerator
 
 class View():
     def __init__(self):
-        self.screen = pygame.display.set_mode((800, 500))
+        self.screen = pygame.display.set_mode((1280, 960))
         self.world = LevelGenerator().generate_level()
+        self.start_background = pygame.image.load("assets/images/background/start_screen.png")
 
     def view_start(self):
         # Render the start screen
-        # Example: Draw a start button, background, etc.
-        pygame.draw.rect(self.screen, (224, 168, 206), pygame.Rect(50, 50, 25, 25))
+        # Example: Draw a start button, background, exit button
+        self.screen.blit(self.start_background, (0, 0))
 
     def view_character_select(self):
         # Render the character selection screen

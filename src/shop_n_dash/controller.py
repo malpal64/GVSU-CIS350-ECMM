@@ -4,6 +4,9 @@ import pygame
 class Controller():
     def __init__(self):
         self.view = View()
+        self.player_x = 50
+        self.player_y = 50
+        self.current_state = 0
 
     def show_start(self):
         return self.view.view_start()
@@ -22,3 +25,19 @@ class Controller():
 
     def show_death(self):
         return self.view.view_death()
+
+    def handle_input(self):
+        keys = pygame.key.get_pressed()
+
+        # Adjust player position based on key presses
+        if keys[pygame.K_UP]:
+            self.player_y -= 5
+        elif keys[pygame.K_DOWN]:
+            self.player_y += 5
+        if keys[pygame.K_LEFT]:
+            self.player_x -= 5
+        elif keys[pygame.K_RIGHT]:
+            self.player_x += 5
+
+        # You can add more complex input handling as needed
+        # For example, handling other keys for actions, inventory, etc.
