@@ -6,11 +6,16 @@ class View():
         self.screen = pygame.display.set_mode((1280, 960))
         self.world = LevelGenerator().generate_level()
         self.start_background = pygame.image.load("assets/images/background/start_screen.png")
+        self.title_icon = pygame.transform.scale(pygame.image.load("assets/images/background/title.png"), (600, 600))
+        self.start_icon = pygame.transform.scale(pygame.image.load("assets/images/background/start_button.png"), (500, 500))
+
 
     def view_start(self):
         # Render the start screen
         # Example: Draw a start button, background, exit button
         self.screen.blit(self.start_background, (0, 0))
+        self.screen.blit(self.title_icon, (350, 100))
+        self.screen.blit(self.start_icon, (390, 500))
 
     def view_character_select(self):
         # Render the character selection screen
