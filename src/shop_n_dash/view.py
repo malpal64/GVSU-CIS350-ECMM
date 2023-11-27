@@ -1,5 +1,6 @@
 import pygame
 from levelGenerator import LevelGenerator
+from button import Button
 
 class View():
     def __init__(self):
@@ -8,6 +9,7 @@ class View():
         self.start_background = pygame.image.load("assets/images/background/start_screen.png")
         self.title_icon = pygame.transform.scale(pygame.image.load("assets/images/background/title.png"), (600, 600))
         self.start_icon = pygame.transform.scale(pygame.image.load("assets/images/background/start_button.png"), (500, 500))
+        self.start_button = Button(390, 500, self.start_icon)
 
 
     def view_start(self):
@@ -16,11 +18,13 @@ class View():
         self.screen.blit(self.start_background, (0, 0))
         self.screen.blit(self.title_icon, (350, 100))
         self.screen.blit(self.start_icon, (390, 500))
+        action = self.start_button.draw(self.screen)
+        return action
 
     def view_character_select(self):
         # Render the character selection screen
         # Example: Display different characters, let the player choose, etc.
-        pass
+        self.screen.blit(self.start_background, (0, 0))
 
     def view_level(self):
         # Render the game level

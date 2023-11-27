@@ -17,7 +17,9 @@ while run:
     # Display screen based on status
     status = controller.current_state
     if status == 0:
-        controller.show_start()
+        action = controller.show_start()
+        if action:
+            controller.current_state = 1
     elif status == 1:
         controller.show_character_select()
     elif status == 2:
