@@ -1,10 +1,12 @@
 import pygame
 
+
 class Button():
-    def __init__(self, x, y, image):
+    def __init__(self, x, y, image, char_type=None):
         self.image = image
         self.rect = self.image.get_rect()
         self.rect.topleft = (x, y)
+        self.char_type = char_type
 
     def draw(self, surface):
         action = False
@@ -19,4 +21,7 @@ class Button():
 
         surface.blit(self.image, self.rect)
 
-        return action
+        if self.char_type != None:
+            return action, self.char_type
+        else:
+            return action

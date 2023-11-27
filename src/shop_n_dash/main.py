@@ -21,7 +21,10 @@ while run:
         if action:
             controller.current_state = 1
     elif status == 1:
-        controller.show_character_select()
+        action = controller.show_character_select()
+        # put char_type to player #
+        if action:
+            controller.current_state = 2
     elif status == 2:
         controller.show_level()
     elif status == 3:
