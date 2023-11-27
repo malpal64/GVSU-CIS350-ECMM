@@ -1,5 +1,6 @@
 from view import View
 import pygame
+from player import Player
 
 class Controller():
     def __init__(self):
@@ -7,14 +8,13 @@ class Controller():
         self.player_x = 50
         self.player_y = 50
         self.current_state = 0
-        self.char_type = 0
 
     def show_start(self):
         return self.view.view_start()
 
     def show_character_select(self):
         action, char_type = self.view.view_character_select()
-        self.char_type = char_type
+        Player.type = char_type
         return action
 
     def show_level(self):

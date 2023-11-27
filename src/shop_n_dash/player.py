@@ -6,6 +6,7 @@ class Player():
         self.rect.center = (x, y)
         self.health = 100
         self.attack_power = 5
+        self.type = 0
         # add inventory
 
     def draw(self, surface):
