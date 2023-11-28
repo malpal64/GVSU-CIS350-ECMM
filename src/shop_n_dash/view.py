@@ -30,7 +30,7 @@ class View():
         self.player_image.fill((255, 0, 0))  # Red player placeholder color
 
         # tiles
-        self.tile_size = 48
+        self.tile_size = 16
         self.floor_image = pygame.image.load("assets/images/tiles/0.png")
         self.wall_image = pygame.image.load("assets/images/tiles/7.png")
 
