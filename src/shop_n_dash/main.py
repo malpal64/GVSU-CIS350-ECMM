@@ -15,23 +15,22 @@ while run:
             run = False
 
     # Display screen based on status
-    status = controller.current_state
-    if status == 0:
+    if controller.current_state == 0:
         action = controller.show_start()
         if action:
             controller.current_state = 1
-    elif status == 1:
+    elif controller.current_state == 1:
         action = controller.show_character_select()
         # put char_type to player #
         if action:
             controller.current_state = 2
-    elif status == 2:
+    elif controller.current_state == 2:
         controller.show_level()
-    elif status == 3:
+    elif controller.current_state == 3:
         controller.show_revive()
-    elif status == 4:
+    elif controller.current_state == 4:
         controller.show_upgrade_screen()
-    elif status == 5:
+    elif controller.current_state == 5:
         controller.show_death()
 
     pygame.display.update()

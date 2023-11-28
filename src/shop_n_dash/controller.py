@@ -18,7 +18,7 @@ class Controller():
         return action
 
     def show_level(self):
-        return self.view.view_level()
+        return self.view.view_level(self.player_x, self.player_y)
 
     def show_revive(self):
         return self.view.view_revive()

@@ -1,11 +1,11 @@
 import pygame
-from levelGenerator import LevelGenerator
+from gameMap import GameMap
 from button import Button
 
 class View():
     def __init__(self):
         self.screen = pygame.display.set_mode((1280, 960))
-        self.world = LevelGenerator().generate_level()
+        self.world = GameMap().level_map
 
         # loading images from assets
         self.start_background = pygame.image.load("assets/images/background/start_screen.png")
@@ -26,7 +26,8 @@ class View():
         self.mad_piggy_button = Button(550, 500, self.mad_piggy_icon, 4)
         self.wizard_button = Button(850, 500, self.wizard_icon, 5)
 
-
+        self.player_image = pygame.Surface((25, 25))  # Placeholder for the player image
+        self.player_image.fill((255, 0, 0))  # Red player placeholder color
 
     def view_start(self):
         # Render the start screen
@@ -60,13 +61,20 @@ class View():
         else:
             return False, 0
 
-
-
-
-    def view_level(self):
+    def view_level(self, player_x, player_y):
         # Render the game level
         # Example: Draw the level, characters, obstacles, etc.
-        self.screen.blit(self.start_background, (0, 0))
+        self.screen.fill((255, 255, 255))  # Fill the screen with a white background
+
+        # Draw the game level
+        for row_index, row in enumerate(self.world):
+            for col_index, tile in enumerate(row):
+                # You would have different logic for drawing different types of tiles (walls, floor, etc.)
+                if tile == 1:
+                    pygame.draw.rect(self.screen, (0, 0, 0), pygame.Rect(col_index * 25, row_index * 25, 25, 25))
+
+        # Draw the player
+        self.screen.blit(self.player_image, (player_x, player_y))
 
     def view_revive(self):
         # Render the screen when the player can revive
