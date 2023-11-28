@@ -29,6 +29,12 @@ class View():
         self.player_image = pygame.Surface((25, 25))  # Placeholder for the player image
         self.player_image.fill((255, 0, 0))  # Red player placeholder color
 
+        # tiles
+        self.tile_size = 48
+        self.floor_image = pygame.image.load("assets/images/tiles/0.png")
+        self.wall_image = pygame.image.load("assets/images/tiles/7.png")
+
+
     def view_start(self):
         # Render the start screen
         # Example: Draw a start button, background, exit button
@@ -67,11 +73,16 @@ class View():
         self.screen.fill((255, 255, 255))  # Fill the screen with a white background
 
         # Draw the game level
-        for row_index, row in enumerate(self.world):
-            for col_index, tile in enumerate(row):
-                # You would have different logic for drawing different types of tiles (walls, floor, etc.)
-                if tile == 1:
-                    pygame.draw.rect(self.screen, (0, 0, 0), pygame.Rect(col_index * 25, row_index * 25, 25, 25))
+        for y, row in enumerate(self.world):
+            for x, tile_value in enumerate(row):
+                # Calculate the screen position for the tile
+                tile_rect = pygame.Rect(x * self.tile_size, y * self.tile_size, self.tile_size, self.tile_size)
+
+                # Draw the corresponding image based on the tile value
+                if tile_value == 0:
+                    self.screen.blit(self.floor_image, tile_rect.topleft)
+                elif tile_value == 1:
+                    self.screen.blit(self.wall_image, tile_rect.topleft)
 
         # Draw the player
         self.screen.blit(self.player_image, (player_x, player_y))
