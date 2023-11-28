@@ -70,7 +70,7 @@ class View():
     def view_level(self, player_x, player_y):
         # Render the game level
         # Example: Draw the level, characters, obstacles, etc.
-        self.screen.fill((255, 255, 255))  # Fill the screen with a white background
+        self.screen.fill((0,0,0))  # Fill the screen with a black background
 
         # Draw the game level
         for y, row in enumerate(self.world):
