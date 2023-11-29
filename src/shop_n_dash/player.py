@@ -1,4 +1,5 @@
 import pygame
+import math
 
 class Player():
     def __init__(self):
@@ -27,6 +28,10 @@ class Player():
             self.move(1, 0)
 
     def move(self, dx, dy):
+        # control diagonal speed
+        if dx != 0 and dy != 0:
+            dx = dx * (math.sqrt(2) / 2)
+            dy = dy * (math.sqrt(2) / 2)
         self.x_pos += dx
         self.y_pos += dy
-        print(self.x_pos, self.y_pos)
+
