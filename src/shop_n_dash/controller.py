@@ -13,7 +13,7 @@ class Controller():
 
     def show_character_select(self):
         action, char_type = self.view.view_character_select()
-        Player.type = char_type
+        self.player.type = char_type
         return action
 
     def show_level(self):
