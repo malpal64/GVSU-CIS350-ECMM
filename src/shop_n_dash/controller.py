@@ -14,10 +14,12 @@ class Controller():
     def show_character_select(self):
         action, char_type = self.view.view_character_select()
         self.player.type = char_type
+        self.player.update()
         return action
 
     def show_level(self):
         self.player.handle_input()
+        self.player.update()
         return self.view.view_level(self.player)
 
     def show_revive(self):

@@ -27,8 +27,8 @@ class View():
         self.mad_piggy_button = Button(550, 500, self.mad_piggy_icon, 4)
         self.wizard_button = Button(850, 500, self.wizard_icon, 5)
 
-        self.player_image = pygame.Surface((25, 25))  # Placeholder for the player image
-        self.player_image.fill((255, 0, 0))  # Red player placeholder color
+        #self.player_image = pygame.Surface((25, 25))  # Placeholder for the player image
+        #self.player_image.fill((255, 0, 0))  # Red player placeholder color
 
         # tiles
         self.tile_size = 16
@@ -86,7 +86,7 @@ class View():
                     self.screen.blit(self.wall_image, tile_rect.topleft)
 
         # Draw the player
-        self.screen.blit(self.player_image, (player.x_pos, player.y_pos))
+        self.screen.blit(player.image, (player.x_pos, player.y_pos))
 
     def view_revive(self):
         # Render the screen when the player can revive
