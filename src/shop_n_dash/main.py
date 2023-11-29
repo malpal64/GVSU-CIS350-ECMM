@@ -1,6 +1,7 @@
 import pygame
 from controller import Controller
 
+
 pygame.init()
 pygame.display.set_caption("Shop 'n Dash")
 clock = pygame.time.Clock()

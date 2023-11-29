@@ -2,6 +2,7 @@ import pygame
 from gameMap import GameMap
 from button import Button
 
+
 class View():
     def __init__(self):
         self.screen = pygame.display.set_mode((1280, 960))
@@ -67,7 +68,7 @@ class View():
         else:
             return False, 0
 
-    def view_level(self, player_x, player_y):
+    def view_level(self, player):
         # Render the game level
         # Example: Draw the level, characters, obstacles, etc.
         self.screen.fill((0,0,0))  # Fill the screen with a black background
@@ -85,7 +86,7 @@ class View():
                     self.screen.blit(self.wall_image, tile_rect.topleft)
 
         # Draw the player
-        self.screen.blit(self.player_image, (player_x, player_y))
+        self.screen.blit(self.player_image, (player.x_pos, player.y_pos))
 
     def view_revive(self):
         # Render the screen when the player can revive
