@@ -34,14 +34,15 @@ class Player():
         print(self.char_list)
 
         self.running = False
-        self.flipped = False
+        self.flip = False
         self.image = self.char_list[self.type - 1][self.action][self.frame_index]
         print(self.image)
 
         # add inventory
 
     def draw(self, screen):
-        screen.blit(self.image)
+        flipped_image = pygame.transform.flip(self.image, self.flip, False)
+        return flipped_image
 
     def update(self):
         # check if character has died

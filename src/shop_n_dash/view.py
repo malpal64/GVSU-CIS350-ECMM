@@ -86,7 +86,7 @@ class View():
                     self.screen.blit(self.wall_image, tile_rect.topleft)
 
         # Draw the player
-        self.screen.blit(player.image, (player.x_pos, player.y_pos))
+        self.screen.blit(player.draw(self.screen), (player.x_pos, player.y_pos))
 
     def view_revive(self):
         # Render the screen when the player can revive
