@@ -18,6 +18,7 @@ class Player():
         self.hit = False
         self.last_hit = pygame.time.get_ticks()
         self.update_time = pygame.time.get_ticks()
+        self.speed = 5
 
         self.animation_types = ["idle", "run"]
         for char in self.char_type:
@@ -31,12 +32,10 @@ class Player():
                     temp_list.append(img)
                 animation_list.append(temp_list)
             self.char_list.append(animation_list)
-        print(self.char_list)
 
         self.running = False
         self.flip = False
         self.image = self.char_list[self.type - 1][self.action][self.frame_index]
-        print(self.image)
 
         # add inventory
 
@@ -109,8 +108,8 @@ class Player():
 
         # control diagonal speed
         if dx != 0 and dy != 0:
-            dx = dx * (math.sqrt(2) / 2)
-            dy = dy * (math.sqrt(2) / 2)
-        self.x_pos += dx
-        self.y_pos += dy
+            dx = dx * (math.sqrt(2) / 2) * self.speed
+            dy = dy * (math.sqrt(2) / 2) * self.speed
+        self.x_pos += dx * self.speed
+        self.y_pos += dy * self.speed
 
