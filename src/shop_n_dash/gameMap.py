@@ -5,8 +5,8 @@ import random
 
 class GameMap():
     def __init__(self):
-        self.width = random.randint(50,70)
-        self.height = random.randint(50,70)
+        self.width = random.randint(20,40)
+        self.height = random.randint(20,30)
         self.tiles = [[Tile(x, y) for y in range(self.height)] for x in range(self.width)]
         self.level_map = LevelGenerator(self.width, self.height).generate_level()
 

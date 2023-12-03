@@ -1,6 +1,7 @@
 import pygame
 from gameMap import GameMap
 from button import Button
+from items import Item
 
 
 class View():
@@ -84,6 +85,9 @@ class View():
                     self.screen.blit(self.floor_image, tile_rect.topleft)
                 elif tile_value == 1:
                     self.screen.blit(self.wall_image, tile_rect.topleft)
+                elif tile_value >= 2 and tile_value <= 15:
+                    self.screen.blit(self.floor_image, tile_rect.topleft)
+                    self.screen.blit(Item().list[tile_value-2][2], tile_rect.topleft)
 
         # Draw the player
         self.screen.blit(player.draw(self.screen), (player.x_pos, player.y_pos))
