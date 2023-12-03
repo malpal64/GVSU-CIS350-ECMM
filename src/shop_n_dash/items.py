@@ -14,5 +14,5 @@ class Item():
                      [11, 'Cereal', pygame.transform.scale(pygame.image.load("assets/images/items/9.png"), (32,32))],
                      [12, 'Coffee beans', pygame.transform.scale(pygame.image.load("assets/images/items/10.png"), (32,32))],
                      [13, 'Milk', pygame.transform.scale(pygame.image.load("assets/images/items/11.png"), (32,32))],
-                     [14, 'Strawberry icecream', pygame.transform.scale(pygame.image.load("assets/images/items/12.png"), (32,32))],
+                     [14, 'Icecream', pygame.transform.scale(pygame.image.load("assets/images/items/12.png"), (32,32))],
                      [15, 'Watermelon', pygame.transform.scale(pygame.image.load("assets/images/items/13.png"), (32,32))]]

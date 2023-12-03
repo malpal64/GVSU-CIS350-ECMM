@@ -95,8 +95,8 @@ class View():
                     self.obstacle_list.append(tile_rect)
 
         # Draw shopping list
-        self.draw_rect_alpha(self.screen, (0, 0, 255, 120), (0, 700, 300, 300))
-        shopping_text = self.font.render(' Shopping List', True, (250, 250, 250))
+        self.draw_rect_alpha(self.screen, (0, 0, 255, 120), (0, 700, 310, 300))
+        shopping_text = self.font.render(' Shopping List:', True, (250, 250, 250))
         self.screen.blit(shopping_text, (0, 710))
         for x in range(len(self.player.items)):
             if self.player.items[x] != 0:
