@@ -6,9 +6,9 @@ from player import Player
 
 
 class View():
-    def __init__(self):
+    def __init__(self, gameMap):
         self.screen = pygame.display.set_mode((1280, 960))
-        self.world = GameMap().level_map
+        self.world = gameMap.level_map
 
         # loading images from assets
         self.start_background = pygame.image.load("assets/images/background/start_screen.png")
@@ -37,7 +37,7 @@ class View():
         self.floor_image = pygame.transform.scale(pygame.image.load("assets/images/tiles/0.png"), (32, 32))
         self.wall_image = pygame.transform.scale(pygame.image.load("assets/images/tiles/7.png"), (32, 32))
         self.obstacle_list = []
-        self.player = Player()
+        self.player = Player(gameMap)
 
     def view_start(self):
         # Render the start screen

@@ -2,12 +2,14 @@ from view import View
 import pygame
 from player import Player
 from levelGenerator import LevelGenerator
+from gameMap import GameMap
 
 class Controller():
     def __init__(self):
-        self.view = View()
+        self.gameMap = GameMap()
+        self.view = View(self.gameMap)
         self.current_state = 0
-        self.player = Player()
+        self.player = Player(self.gameMap)
 
     def show_start(self):
         return self.view.view_start()
