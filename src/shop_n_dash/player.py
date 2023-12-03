@@ -21,7 +21,7 @@ class Player():
         self.hit = False
         self.last_hit = pygame.time.get_ticks()
         self.update_time = pygame.time.get_ticks()
-        self.speed = 5
+        self.speed = 7
         self.world = gameMap.level_map
         self.obstacle_list = gameMap.obstacle_list
         self.items = gameMap.items
@@ -121,21 +121,23 @@ class Player():
         new_x = self.x_pos + (dx * self.speed)
         new_y = self.y_pos + (dy * self.speed)
 
-        if self.collision(self.obstacle_list, new_x, new_y):
+        if self.collision(new_x, new_y):
             return
         else:
             self.x_pos = new_x
             self.y_pos = new_y
 
-    def collision(self, obstacle_list, x, y):
+    def collision(self, x, y):
         rect = pygame.Rect(x, y, 32, 32)
-        if obstacle_list is not None:
-            for obstacle in range(len(obstacle_list)):
-                if rect.colliderect(obstacle_list[obstacle][0]):
-                    if obstacle_list[obstacle][1] == 1:
+        if self.obstacle_list is not None:
+            for obstacle in range(len(self.obstacle_list)):
+                if rect.colliderect(self.obstacle_list[obstacle][0]):
+                    if self.obstacle_list[obstacle][1] == 1:
                         return True
                     else:
                         for item in range(len(self.items)):
-                            if obstacle_list[obstacle][1] == self.items[item]:
-                                self.items[item] = 0
+                            if self.obstacle_list[obstacle][1] == self.items[item]:
+                                self.items.pop(item)
+                                self.obstacle_list.pop(obstacle)
+                                return False
                         return False

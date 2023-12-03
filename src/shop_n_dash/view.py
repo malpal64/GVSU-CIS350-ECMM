@@ -39,6 +39,7 @@ class View():
         self.obstacle_list = []
         self.player = Player(gameMap)
         self.font = pygame.font.Font("assets/fonts/AtariClassic.ttf", 20)
+        self.text = ''
 
     def view_start(self):
         # Render the start screen
@@ -97,6 +98,10 @@ class View():
         self.draw_rect_alpha(self.screen, (0, 0, 255, 120), (0, 700, 300, 300))
         shopping_text = self.font.render(' Shopping List', True, (250, 250, 250))
         self.screen.blit(shopping_text, (0, 710))
+        for x in range(len(self.player.items)):
+            if self.player.items[x] != 0:
+                text = self.font.render(f'-{Item().list[self.player.items[x]-2][1]}', True, (250, 250, 250))
+                self.screen.blit(text, (0, 710 + ((x + 1) * 20)))
 
         # Draw hp
 

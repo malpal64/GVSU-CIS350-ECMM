@@ -57,12 +57,11 @@ class LevelGenerator:
     def place_items(self):
         num_items = random.randint(5, 10)
 
-        for _ in range(num_items):
+        for x in range(num_items):
             item_x = random.randint(1, self.width - 1)
             item_y = random.randint(1, self.height - 1)
 
             if self.tiles[item_y][item_x] == 0:
-                # 2 represents an item in this example
                 self.tiles[item_y][item_x] = random.randint(2,15)
                 self.items.append(self.tiles[item_y][item_x])
 
