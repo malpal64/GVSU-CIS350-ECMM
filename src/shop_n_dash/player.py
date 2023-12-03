@@ -1,5 +1,8 @@
 import pygame
 import math
+from levelGenerator import LevelGenerator
+from gameMap import GameMap
+
 
 class Player():
     def __init__(self):
@@ -19,6 +22,8 @@ class Player():
         self.last_hit = pygame.time.get_ticks()
         self.update_time = pygame.time.get_ticks()
         self.speed = 5
+        self.world = GameMap().level_map
+        self.obstacle_list = GameMap().obstacle_list
 
         self.animation_types = ["idle", "run"]
         for char in self.char_type:
@@ -110,6 +115,20 @@ class Player():
         if dx != 0 and dy != 0:
             dx = dx * (math.sqrt(2) / 2) * self.speed
             dy = dy * (math.sqrt(2) / 2) * self.speed
-        self.x_pos += dx * self.speed
-        self.y_pos += dy * self.speed
+        new_x = self.x_pos + (dx * self.speed)
+        new_y = self.y_pos + (dy * self.speed)
 
+        if self.collision(self.obstacle_list, new_x, new_y):
+            return
+        else:
+            self.x_pos = new_x
+            self.y_pos = new_y
+
+    def collision(self, obstacle_list, x, y):
+        x_pos = self.x_pos + x
+        y_pos = self.y_pos + y
+        rect = pygame.Rect(x_pos, y_pos, 40, 40)
+        if obstacle_list != None:
+            for obstacle in obstacle_list:
+                if rect.colliderect(obstacle):
+                    return True

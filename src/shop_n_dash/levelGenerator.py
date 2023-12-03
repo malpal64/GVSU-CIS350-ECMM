@@ -6,11 +6,14 @@ from tile import Tile
 from enemy import Enemy
 
 class LevelGenerator:
-    def __init__(self, width, height):
+    def __init__(self, height, width):
         self.width = width
         self.height = height
         self.tiles = [[0 for _ in range(width)] for _ in range(height)]
         self.items = []
+        self.item_tiles = [2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+        self.obstacle_tiles = []
+        self.wall_tiles = [1]
 
     def generate_level(self):
         self.generate_rooms()
@@ -18,7 +21,6 @@ class LevelGenerator:
         self.place_items()
         #self.place_enemies()
         self.create_walls()
-        print(self.items)
 
         return self.tiles
 

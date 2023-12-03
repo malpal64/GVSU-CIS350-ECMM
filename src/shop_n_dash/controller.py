@@ -1,6 +1,7 @@
 from view import View
 import pygame
 from player import Player
+from levelGenerator import LevelGenerator
 
 class Controller():
     def __init__(self):

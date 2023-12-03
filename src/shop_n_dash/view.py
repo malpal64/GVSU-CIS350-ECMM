@@ -2,6 +2,7 @@ import pygame
 from gameMap import GameMap
 from button import Button
 from items import Item
+from player import Player
 
 
 class View():
@@ -35,7 +36,8 @@ class View():
         self.tile_size = 32
         self.floor_image = pygame.transform.scale(pygame.image.load("assets/images/tiles/0.png"), (32, 32))
         self.wall_image = pygame.transform.scale(pygame.image.load("assets/images/tiles/7.png"), (32, 32))
-
+        self.obstacle_list = []
+        self.player = Player()
 
     def view_start(self):
         # Render the start screen
@@ -85,9 +87,11 @@ class View():
                     self.screen.blit(self.floor_image, tile_rect.topleft)
                 elif tile_value == 1:
                     self.screen.blit(self.wall_image, tile_rect.topleft)
-                elif tile_value >= 2 and tile_value <= 15:
+                    self.obstacle_list.append(tile_rect)
+                elif 2 <= tile_value <= 15:
                     self.screen.blit(self.floor_image, tile_rect.topleft)
                     self.screen.blit(Item().list[tile_value-2][2], tile_rect.topleft)
+                    self.obstacle_list.append(tile_rect)
 
         # Draw the player
         self.screen.blit(player.draw(self.screen), (player.x_pos, player.y_pos))
