@@ -126,7 +126,10 @@ class Player():
 
     def collision(self, obstacle_list, x, y):
         rect = pygame.Rect(x, y, 32, 32)
-        if obstacle_list != None:
-            for obstacle in obstacle_list:
-                if rect.colliderect(obstacle):
-                    return True
+        if obstacle_list is not None:
+            for obstacle in range(len(obstacle_list)):
+                if rect.colliderect(obstacle_list[obstacle][0]):
+                    if obstacle_list[obstacle][1] == 1:
+                        return True
+                    else:
+                        return False

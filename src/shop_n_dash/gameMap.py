@@ -18,7 +18,7 @@ class GameMap():
                 tile_rect = pygame.Rect(x * self.tile_size, y * self.tile_size, self.tile_size, self.tile_size)
                 print(tile_rect)
                 if 1 <= tile_value <= 15:
-                    self.obstacle_list.append(tile_rect)
+                    self.obstacle_list.append([tile_rect, tile_value])
 
 
     def set_tile(self, x, y, tile):
