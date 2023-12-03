@@ -82,7 +82,7 @@ class View():
         for y, row in enumerate(self.world):
             for x, tile_value in enumerate(row):
                 # Calculate the screen position for the tile
-                tile_rect = pygame.Rect(x * self.tile_size + ((1280 - (len(self.world[0]))* 32) / 2), y * self.tile_size, self.tile_size, self.tile_size)
+                tile_rect = pygame.Rect(x * self.tile_size + ((1280 - (len(self.world[0]))* 32) / 2), y * self.tile_size + ((960 - (len(self.world))* 32) / 2), self.tile_size, self.tile_size)
                 # Draw the corresponding image based on the tile value
                 if tile_value == 0:
                     self.screen.blit(self.floor_image, tile_rect.topleft)
@@ -104,11 +104,16 @@ class View():
                 self.screen.blit(text, (0, 710 + ((x + 1) * 20)))
 
         # Draw hp
+        self.draw_rect_alpha(self.screen, (0, 0, 255, 120), (0, 0, 1280, 80))
 
         # Draw timer
 
         # Draw the player
         self.screen.blit(player.draw(self.screen), (player.x_pos, player.y_pos))
+        # level end conditions
+        #if len(self.player.items) == 0:
+        #    return 2
+
 
     def draw_rect_alpha(self, surface, color, rect):
         shape_surf = pygame.Surface(pygame.Rect(rect).size, pygame.SRCALPHA)

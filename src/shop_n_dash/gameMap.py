@@ -15,7 +15,7 @@ class GameMap():
         for y, row in enumerate(self.level_map):
             for x, tile_value in enumerate(row):
                 # Calculate the screen position for the tile
-                tile_rect = pygame.Rect(x * self.tile_size + ((1280 - (len(self.tiles[0])) * 32) / 2), y * self.tile_size, self.tile_size, self.tile_size)
+                tile_rect = pygame.Rect(x * self.tile_size + ((1280 - (len(self.tiles[0])) * 32) / 2), y * self.tile_size + ((960 - (len(self.tiles))* 32) / 2), self.tile_size, self.tile_size)
                 if 1 <= tile_value <= 15:
                     self.obstacle_list.append([tile_rect, tile_value])
 

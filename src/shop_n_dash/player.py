@@ -6,9 +6,9 @@ from gameMap import GameMap
 
 class Player():
     def __init__(self, gameMap):
-        self.rect = pygame.Rect(0,0,32,32)
-        self.x_pos = 350
-        self.y_pos = 100
+        self.rect = pygame.Rect(0,0,20,20)
+        self.x_pos = 400
+        self.y_pos = 300
         self.rect.center = (self.x_pos, self.y_pos)
         self.health = 100
         self.attack_power = 4
@@ -21,10 +21,11 @@ class Player():
         self.hit = False
         self.last_hit = pygame.time.get_ticks()
         self.update_time = pygame.time.get_ticks()
-        self.speed = 7
+        self.speed = 6
         self.world = gameMap.level_map
         self.obstacle_list = gameMap.obstacle_list
         self.items = gameMap.items
+
 
         self.animation_types = ["idle", "run"]
         for char in self.char_type:

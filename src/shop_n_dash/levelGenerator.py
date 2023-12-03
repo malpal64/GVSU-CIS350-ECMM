@@ -55,7 +55,7 @@ class LevelGenerator:
                     self.tiles[y][i] = 1
 
     def place_items(self):
-        num_items = random.randint(5, 10)
+        num_items = random.randint(5, 7)
 
         for x in range(num_items):
             item_x = random.randint(1, self.width - 1)
