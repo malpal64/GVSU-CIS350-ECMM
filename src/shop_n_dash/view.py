@@ -38,7 +38,7 @@ class View():
         self.wall_image = pygame.transform.scale(pygame.image.load("assets/images/tiles/7.png"), (32, 32))
         self.obstacle_list = []
         self.player = Player(gameMap)
-        self.font = font = pygame.font.Font("assets/fonts/AtariClassic.ttf", 20)
+        self.font = pygame.font.Font("assets/fonts/AtariClassic.ttf", 20)
 
     def view_start(self):
         # Render the start screen
@@ -94,7 +94,9 @@ class View():
                     self.obstacle_list.append(tile_rect)
 
         # Draw shopping list
-
+        self.draw_rect_alpha(self.screen, (0, 0, 255, 120), (0, 700, 300, 300))
+        shopping_text = self.font.render(' Shopping List', True, (250, 250, 250))
+        self.screen.blit(shopping_text, (0, 710))
 
         # Draw hp
 
@@ -102,6 +104,11 @@ class View():
 
         # Draw the player
         self.screen.blit(player.draw(self.screen), (player.x_pos, player.y_pos))
+
+    def draw_rect_alpha(self, surface, color, rect):
+        shape_surf = pygame.Surface(pygame.Rect(rect).size, pygame.SRCALPHA)
+        pygame.draw.rect(shape_surf, color, shape_surf.get_rect())
+        surface.blit(shape_surf, rect)
 
     def view_revive(self):
         # Render the screen when the player can revive

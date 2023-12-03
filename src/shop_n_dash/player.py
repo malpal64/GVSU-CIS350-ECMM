@@ -7,11 +7,11 @@ from gameMap import GameMap
 class Player():
     def __init__(self, gameMap):
         self.rect = pygame.Rect(0,0,32,32)
-        self.x_pos = 300
-        self.y_pos = 300
+        self.x_pos = 350
+        self.y_pos = 100
         self.rect.center = (self.x_pos, self.y_pos)
         self.health = 100
-        self.attack_power = 5
+        self.attack_power = 4
         self.type = 0
         self.char_list = []
         self.char_type = ["boy", "girl", "elderly", "mad_piggy", "wizard"]
@@ -115,8 +115,9 @@ class Player():
 
         # control diagonal speed
         if dx != 0 and dy != 0:
-            dx = dx * (math.sqrt(2) / 2) * self.speed
-            dy = dy * (math.sqrt(2) / 2) * self.speed
+            magnitude = math.sqrt(dx ** 2 + dy ** 2)
+            dx = (dx / magnitude) * (math.sqrt(2) / 2)
+            dy = (dy / magnitude) * (math.sqrt(2) / 2)
         new_x = self.x_pos + (dx * self.speed)
         new_y = self.y_pos + (dy * self.speed)
 
