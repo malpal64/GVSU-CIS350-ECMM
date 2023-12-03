@@ -38,6 +38,7 @@ class View():
         self.wall_image = pygame.transform.scale(pygame.image.load("assets/images/tiles/7.png"), (32, 32))
         self.obstacle_list = []
         self.player = Player(gameMap)
+        self.font = font = pygame.font.Font("assets/fonts/AtariClassic.ttf", 20)
 
     def view_start(self):
         # Render the start screen
@@ -80,8 +81,7 @@ class View():
         for y, row in enumerate(self.world):
             for x, tile_value in enumerate(row):
                 # Calculate the screen position for the tile
-                tile_rect = pygame.Rect(x * self.tile_size, y * self.tile_size, self.tile_size, self.tile_size)
-
+                tile_rect = pygame.Rect(x * self.tile_size + ((1280 - (len(self.world[0]))* 32) / 2), y * self.tile_size, self.tile_size, self.tile_size)
                 # Draw the corresponding image based on the tile value
                 if tile_value == 0:
                     self.screen.blit(self.floor_image, tile_rect.topleft)
@@ -92,6 +92,13 @@ class View():
                     self.screen.blit(self.floor_image, tile_rect.topleft)
                     self.screen.blit(Item().list[tile_value-2][2], tile_rect.topleft)
                     self.obstacle_list.append(tile_rect)
+
+        # Draw shopping list
+
+
+        # Draw hp
+
+        # Draw timer
 
         # Draw the player
         self.screen.blit(player.draw(self.screen), (player.x_pos, player.y_pos))

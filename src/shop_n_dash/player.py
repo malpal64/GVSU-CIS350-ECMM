@@ -7,8 +7,8 @@ from gameMap import GameMap
 class Player():
     def __init__(self, gameMap):
         self.rect = pygame.Rect(0,0,32,32)
-        self.x_pos = 50
-        self.y_pos = 50
+        self.x_pos = 300
+        self.y_pos = 300
         self.rect.center = (self.x_pos, self.y_pos)
         self.health = 100
         self.attack_power = 5
@@ -24,6 +24,7 @@ class Player():
         self.speed = 5
         self.world = gameMap.level_map
         self.obstacle_list = gameMap.obstacle_list
+        self.items = gameMap.items
 
         self.animation_types = ["idle", "run"]
         for char in self.char_type:
@@ -77,6 +78,7 @@ class Player():
         # check if animation has finished
         if self.frame_index >= len(self.char_list[self.action]):
             self.frame_index = 0
+
 
     def handle_input(self):
         keys = pygame.key.get_pressed()
@@ -132,4 +134,7 @@ class Player():
                     if obstacle_list[obstacle][1] == 1:
                         return True
                     else:
+                        for item in range(len(self.items)):
+                            if obstacle_list[obstacle][1] == self.items[item]:
+                                self.items[item] = 0
                         return False

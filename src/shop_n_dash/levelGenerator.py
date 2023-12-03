@@ -22,7 +22,7 @@ class LevelGenerator:
         #self.place_enemies()
         self.create_walls()
 
-        return self.tiles
+        return self.tiles, self.items
 
     def generate_rooms(self):
         num_rooms = random.randint(5, 10)
