@@ -41,6 +41,7 @@ class View():
         self.font = pygame.font.Font("assets/fonts/AtariClassic.ttf", 20)
         self.text = ''
         self.new_level = False
+        self.level = 1
 
     def view_start(self):
         # Render the start screen
@@ -79,6 +80,7 @@ class View():
             self.gameMap.new_map()
             self.player.new_player(self.gameMap)
             self.new_level = False
+            self.level += 1
 
 
         # Render the game level
@@ -112,6 +114,8 @@ class View():
 
         # Draw hp
         self.draw_rect_alpha(self.screen, (0, 0, 255, 120), (0, 0, 1280, 80))
+        level_text = self.font.render(f'Level: {self.level}', True, (250, 250, 250))
+        self.screen.blit(level_text, (550, 30))
 
         # Draw timer
 
