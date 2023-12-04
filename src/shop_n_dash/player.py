@@ -123,14 +123,25 @@ class Player():
     def handle_input(self):
         keys = pygame.key.get_pressed()
 
-        if keys[pygame.K_UP]:
+        if keys[pygame.K_UP] and keys[pygame.K_LEFT]:
+            self.move(-1, -1)
+        elif keys[pygame.K_UP] and keys[pygame.K_RIGHT]:
+            self.move(1, -1)
+        elif keys[pygame.K_DOWN] and keys[pygame.K_RIGHT]:
+            self.move(1, 1)
+        elif keys[pygame.K_UP] and keys[pygame.K_RIGHT]:
+            self.move(1, -1)
+        elif keys[pygame.K_UP]:
             self.move(0, -1)
         elif keys[pygame.K_DOWN]:
             self.move(0, 1)
-        if keys[pygame.K_LEFT]:
+        elif keys[pygame.K_LEFT]:
             self.move(-1, 0)
         elif keys[pygame.K_RIGHT]:
             self.move(1, 0)
+
+
+
         else:
             self.running = False
 
@@ -155,9 +166,8 @@ class Player():
 
         # control diagonal speed
         if dx != 0 and dy != 0:
-            magnitude = math.sqrt(dx ** 2 + dy ** 2)
-            dx = (dx / magnitude) * (math.sqrt(2) / 2)
-            dy = (dy / magnitude) * (math.sqrt(2) / 2)
+            dx = dx * (math.sqrt(2) / 2)
+            dy = dy * (math.sqrt(2) / 2)
         new_x = self.x_pos + (dx * self.speed)
         new_y = self.y_pos + (dy * self.speed)
 
