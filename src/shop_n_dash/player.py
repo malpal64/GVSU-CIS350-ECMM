@@ -45,6 +45,45 @@ class Player():
         self.image = self.char_list[self.type - 1][self.action][self.frame_index]
 
         # add inventory
+    def new_player(self, gameMap):
+        self.rect = pygame.Rect(0, 0, 20, 20)
+        self.x_pos = 400
+        self.y_pos = 300
+        self.rect.center = (self.x_pos, self.y_pos)
+        self.health = 100
+        self.attack_power = 4
+        self.type = 0
+        self.char_list = []
+        self.char_type = ["boy", "girl", "elderly", "mad_piggy", "wizard"]
+        self.action = 0
+        self.frame_index = 0
+        self.alive = True
+        self.hit = False
+        self.last_hit = pygame.time.get_ticks()
+        self.update_time = pygame.time.get_ticks()
+        self.speed = 6
+        self.world = gameMap.level_map
+        self.obstacle_list = gameMap.obstacle_list
+        self.items = gameMap.items
+
+        self.animation_types = ["idle", "run"]
+        for char in self.char_type:
+            # load images
+            animation_list = []
+            for animation in self.animation_types:
+                # reset temporary list of images
+                temp_list = []
+                for i in range(4):
+                    img = pygame.transform.scale(pygame.image.load(
+                        f"assets/images/characters/{char}/{animation}/{animation}_{i}.png").convert_alpha(), (50, 50))
+                    temp_list.append(img)
+                animation_list.append(temp_list)
+            self.char_list.append(animation_list)
+
+        self.running = False
+        self.flip = False
+        self.image = self.char_list[self.type - 1][self.action][self.frame_index]
+
 
     def draw(self, screen):
         flipped_image = pygame.transform.flip(self.image, self.flip, False)

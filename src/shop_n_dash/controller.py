@@ -6,10 +6,9 @@ from gameMap import GameMap
 
 class Controller():
     def __init__(self):
-        self.gameMap = GameMap()
-        self.view = View(self.gameMap)
+        self.view = View()
         self.current_state = 0
-        self.player = Player(self.gameMap)
+        self.player = Player(self.view.gameMap)
 
     def show_start(self):
         return self.view.view_start()
@@ -23,7 +22,8 @@ class Controller():
     def show_level(self):
         self.player.handle_input()
         self.player.update()
-        return self.view.view_level(self.player)
+        self.player = self.view.view_level(self.player)
+
 
     def show_revive(self):
         return self.view.view_revive()

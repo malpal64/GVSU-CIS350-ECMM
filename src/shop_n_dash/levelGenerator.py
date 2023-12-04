@@ -58,8 +58,8 @@ class LevelGenerator:
         num_items = random.randint(5, 7)
 
         for x in range(num_items):
-            item_x = random.randint(1, self.width - 1)
-            item_y = random.randint(1, self.height - 1)
+            item_x = random.randint(1, self.width - 2)
+            item_y = random.randint(1, self.height - 2)
 
             if self.tiles[item_y][item_x] == 0:
                 self.tiles[item_y][item_x] = random.randint(2,15)

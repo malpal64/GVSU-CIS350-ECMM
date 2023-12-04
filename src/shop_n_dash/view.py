@@ -6,9 +6,9 @@ from player import Player
 
 
 class View():
-    def __init__(self, gameMap):
+    def __init__(self):
         self.screen = pygame.display.set_mode((1280, 960))
-        self.world = gameMap.level_map
+        self.gameMap = GameMap()
 
         # loading images from assets
         self.start_background = pygame.image.load("assets/images/background/start_screen.png")
@@ -37,9 +37,10 @@ class View():
         self.floor_image = pygame.transform.scale(pygame.image.load("assets/images/tiles/0.png"), (32, 32))
         self.wall_image = pygame.transform.scale(pygame.image.load("assets/images/tiles/7.png"), (32, 32))
         self.obstacle_list = []
-        self.player = Player(gameMap)
+        self.player = Player(self.gameMap)
         self.font = pygame.font.Font("assets/fonts/AtariClassic.ttf", 20)
         self.text = ''
+        self.new_level = False
 
     def view_start(self):
         # Render the start screen
@@ -74,15 +75,21 @@ class View():
             return False, 0
 
     def view_level(self, player):
+        if self.new_level:
+            self.gameMap.new_map()
+            self.player.new_player(self.gameMap)
+            self.new_level = False
+
+
         # Render the game level
         # Example: Draw the level, characters, obstacles, etc.
         self.screen.fill((0,0,0))  # Fill the screen with a black background
 
         # Draw the game level
-        for y, row in enumerate(self.world):
+        for y, row in enumerate(self.gameMap.level_map):
             for x, tile_value in enumerate(row):
                 # Calculate the screen position for the tile
-                tile_rect = pygame.Rect(x * self.tile_size + ((1280 - (len(self.world[0]))* 32) / 2), y * self.tile_size + ((960 - (len(self.world))* 32) / 2), self.tile_size, self.tile_size)
+                tile_rect = pygame.Rect(x * self.tile_size + ((1280 - (len(self.gameMap.level_map[0]))* 32) / 2), y * self.tile_size + ((960 - (len(self.gameMap.level_map))* 32) / 2), self.tile_size, self.tile_size)
                 # Draw the corresponding image based on the tile value
                 if tile_value == 0:
                     self.screen.blit(self.floor_image, tile_rect.topleft)
@@ -111,8 +118,9 @@ class View():
         # Draw the player
         self.screen.blit(player.draw(self.screen), (player.x_pos, player.y_pos))
         # level end conditions
-        #if len(self.player.items) == 0:
-        #    return 2
+        if len(self.player.items) == 0:
+            self.new_level = True
+        return self.player
 
 
     def draw_rect_alpha(self, surface, color, rect):
