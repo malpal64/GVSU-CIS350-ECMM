@@ -63,14 +63,19 @@ class View():
         action5, char_type5 = self.wizard_button.draw(self.screen)
 
         if action1:
+            self.player.type = 1
             return action1, 1
         elif action2:
+            self.player.type = 2
             return action2, 2
         elif action3:
+            self.player.type = 3
             return action3, 3
         elif action4:
+            self.player.type = 4
             return action4, 4
         elif action5:
+            self.player.type = 5
             return action5, 5
         else:
             return False, 0
