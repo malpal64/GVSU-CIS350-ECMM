@@ -52,7 +52,6 @@ class Player():
         self.rect.center = (self.x_pos, self.y_pos)
         self.health = 100
         self.attack_power = 4
-        self.type = 0
         self.char_list = []
         self.char_type = ["boy", "girl", "elderly", "mad_piggy", "wizard"]
         self.action = 0
