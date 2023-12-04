@@ -21,7 +21,7 @@ class Player():
         self.hit = False
         self.last_hit = pygame.time.get_ticks()
         self.update_time = pygame.time.get_ticks()
-        self.speed = 6
+        self.speed = 7
         self.world = gameMap.level_map
         self.obstacle_list = gameMap.obstacle_list
         self.items = gameMap.items
@@ -60,7 +60,7 @@ class Player():
         self.hit = False
         self.last_hit = pygame.time.get_ticks()
         self.update_time = pygame.time.get_ticks()
-        self.speed = 6
+        self.speed = 7
         self.world = gameMap.level_map
         self.obstacle_list = gameMap.obstacle_list
         self.items = gameMap.items
