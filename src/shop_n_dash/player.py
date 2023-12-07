@@ -128,8 +128,8 @@ class Player():
             self.move(1, -1)
         elif keys[pygame.K_DOWN] and keys[pygame.K_RIGHT]:
             self.move(1, 1)
-        elif keys[pygame.K_UP] and keys[pygame.K_RIGHT]:
-            self.move(1, -1)
+        elif keys[pygame.K_DOWN] and keys[pygame.K_LEFT]:
+            self.move(-1, 1)
         elif keys[pygame.K_UP]:
             self.move(0, -1)
         elif keys[pygame.K_DOWN]:
