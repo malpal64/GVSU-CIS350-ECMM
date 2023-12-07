@@ -1,6 +1,6 @@
 # Team ECMM
 
-Project description (~1 paragraph)
+We are creating "Shop 'n Dash" which is a roguelike game centered around a whimsical and humorous grocery shopping experience. The goal of the game is to first choose your desired charachter. When you start the game you will navigate your way through AI generated levels to find all the items on your list in order to proceed to the next level.  Future releases of the game should include enemies that you must avoid and defeat while shopping your list.
 
 ## Team Members and Roles
 
