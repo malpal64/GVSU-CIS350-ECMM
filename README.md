@@ -12,12 +12,12 @@ We are creating "Shop 'n Dash" which is a roguelike game centered around a whims
 ## Prerequisites
 
 * Python installed on computer
-* Pygame istalled on computer
+* Pygame installed on computer
 
 ## Run Instructions
 
 * Clone repository [here](https://github.com/malpal64/GVSU-CIS350-ECMM)
-* If Pygame isn't istalled:
+* If Pygame isn't installed:
   * Open terminal
   * Run "pip install pygame"
 * Navigate to Shop_n_dash folder
