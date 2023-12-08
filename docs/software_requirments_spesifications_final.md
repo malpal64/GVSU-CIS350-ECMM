@@ -79,9 +79,9 @@ The purpose of this Software Requirements Specification (SRS) document is to pro
  
 Below are the links to all of our previously created artifacts that contributed to the development of the project.
  
-[ECMM Midterm Presentation](https://github.com/malpal64/GVSU-CIS350-ECMM/blob/main/docs/ECMM%20presentation.pdf)
-[Project Proposal](https://github.com/malpal64/GVSU-CIS350-ECMM/blob/main/docs/project-proposal.md)
-[Coin Use case diagram](https://github.com/malpal64/GVSU-CIS350-ECMM/blob/main/artifacts/Use_case_diagrams/coin_use_case.pdf)
-[Inventory Use case diagram](https://github.com/malpal64/GVSU-CIS350-ECMM/blob/main/artifacts/Use_case_diagrams/inventory_use_case.pdf)
-[Movement Use case diagram](https://github.com/malpal64/GVSU-CIS350-ECMM/blob/main/artifacts/Use_case_diagrams/movement_use_case.pdf)
-[Midterm SRS](https://github.com/malpal64/GVSU-CIS350-ECMM/blob/main/docs/software_requirements_specification.md)
+*[ECMM Midterm Presentation](https://github.com/malpal64/GVSU-CIS350-ECMM/blob/main/docs/ECMM%20presentation.pdf)
+*[Project Proposal](https://github.com/malpal64/GVSU-CIS350-ECMM/blob/main/docs/project-proposal.md)
+*[Coin Use case diagram](https://github.com/malpal64/GVSU-CIS350-ECMM/blob/main/artifacts/Use_case_diagrams/coin_use_case.pdf)
+*[Inventory Use case diagram](https://github.com/malpal64/GVSU-CIS350-ECMM/blob/main/artifacts/Use_case_diagrams/inventory_use_case.pdf)
+*[Movement Use case diagram](https://github.com/malpal64/GVSU-CIS350-ECMM/blob/main/artifacts/Use_case_diagrams/movement_use_case.pdf)
+*[Midterm SRS](https://github.com/malpal64/GVSU-CIS350-ECMM/blob/main/docs/software_requirements_specification.md)
